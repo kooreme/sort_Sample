@@ -53,9 +53,9 @@
             downheap(A, i);
         }
     }
-    function startHeapSort(A) {
+    function startHeapSort(A, isDesc = false) {
         heapSort(A);
-        return A;
+        return isDesc ? A.reverse() : A;
     }
     const A = shuffle(Array(26)
         .fill(0)
