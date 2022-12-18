@@ -1,7 +1,7 @@
 "use strict";
 //ローカルスコープで環境を独立させる
 {
-    const swap = (A, i, j) => [A[j], A[i]] = [A[i], A[j]];
+    const swap = (A, i, j) => ([A[j], A[i]] = [A[i], A[j]]);
     //要素番号基準を0とする。その場合の親、子要素の取得
     const parent = (i) => Math.floor((i + 1) / 2 - 1);
     const leftChild = (i) => (i + 1) * 2 - 1;
@@ -9,7 +9,7 @@
     function shuffle(arr) {
         const tmp = [];
         let t;
-        while (t = arr.splice(Math.floor(Math.random() * arr.length), 1)[0])
+        while ((t = arr.splice(Math.floor(Math.random() * arr.length), 1)[0]))
             tmp.push(t);
         return tmp;
     }
@@ -57,7 +57,9 @@
         heapSort(A);
         return A;
     }
-    const A = shuffle(Array(26).fill(0).map((_, i) => String.fromCharCode(i + 65)));
+    const A = shuffle(Array(26)
+        .fill(0)
+        .map((_, i) => String.fromCharCode(i + 65)));
     console.log(A);
     console.time("sortTime");
     console.log(startHeapSort(A));

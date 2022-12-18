@@ -4,7 +4,7 @@
     function shuffle(arr) {
         const tmp = [];
         let t;
-        while (t = arr.splice(Math.floor(Math.random() * arr.length), 1)[0])
+        while ((t = arr.splice(Math.floor(Math.random() * arr.length), 1)[0]))
             tmp.push(t);
         return tmp;
     }
@@ -41,7 +41,9 @@
         return isDesc ? mergeSort(left, arr).reverse() : mergeSort(left, arr);
     }
     //const A : Array<number> = shuffle(Array(100).fill(0).map((_, i) => i+1));
-    const A = shuffle(Array(100).fill(0).map((_1, _2, a) => Math.floor(Math.random() * a.length) + 1));
+    const A = shuffle(Array(100)
+        .fill(0)
+        .map((_1, _2, a) => Math.floor(Math.random() * a.length) + 1));
     console.log(A);
     console.time("sortTime");
     console.log(startMergeSort(A));
