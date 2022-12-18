@@ -13,7 +13,7 @@
             tmp.push(t);
         return tmp;
     }
-    function unheap(A, i) {
+    function upheap(A, i) {
         while (i > 0) {
             let m = parent(i);
             if (A[m] < A[i])
@@ -45,7 +45,7 @@
         const length = A.length;
         //A[0]をルートとして、A[1]から順番にヒープ木を構築
         for (let i = 1; i < length; i++) {
-            unheap(A, i);
+            upheap(A, i);
         }
         //A[0]（木の最大値）を論理的に取り除いた後、ヒープ木を再構築。これを繰り返して整列
         for (let i = length - 1; i > 0; i--) {
