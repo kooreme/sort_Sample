@@ -14,15 +14,13 @@
         left: Array<T>,
         right: Array<T>
     ): Array<T> {
-        let m: Array<T> = [];
         if (left.length > 1 || right.length > 1) {
             const newLeft = left.splice(0, Math.floor(left.length / 2));
             left = mergeSort(newLeft, left);
             const newRight = right.splice(0, Math.floor(right.length / 2));
             right = mergeSort(newRight, right);
         }
-        m = merge(left, right);
-        return m;
+        return merge(left, right);
     }
 
     function merge<T extends AllowPrimitive>(
